@@ -12,7 +12,7 @@ class EmployeesController extends Controller
 {
     public function importForm(Request $request)
     {
-        $file =  Storage::get('Files/Employees.csv');
+         $file =  Storage::get('Files/Book2.csv');
         $rows = preg_split('/\n/', $file);
         //dd($rows);
         //Remove empty elements
@@ -21,12 +21,12 @@ class EmployeesController extends Controller
         $data = array_slice($filtered_array, 1);
         //dd($data);
         $parts = (array_chunk($data, 200));
-        //dd($parts);
+        // dd($parts);
         foreach ($parts as $index => $part) {
             $fileName = resource_path('pending-uploads/' . date('y-m-d-H-i-s') . $index . '.csv');
             file_put_contents($fileName, $part);
         }
-        (new Employee())->importDB();
+        (new Employee())->importDB($parts); 
         return view('import-form');
     }
     /* public function import(Request $request)
