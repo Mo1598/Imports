@@ -15,21 +15,21 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('sku')->unique();
-            $table->string( 'store_view_code')->nullable();
+            $table->string('sku');
+           /*  $table->string( 'store_view_code')->nullable();
             $table->string( 'attribute_set_code')->default('Default');
             $table->string('product_type')->default('Simple'); 
             $table->string ('categories')->nullable();
-            $table->string('product_websites')->nullable();
+            $table->string('product_websites')->nullable(); */
             $table->string('name');
-            $table->text( 'description');
+           /*  $table->text( 'description');
             $table->text('short_description');
             $table->integer('weight');
             $table->integer('product_online')->default('1'); 
             $table->string('tax_class_name')->default('Taxable Goods'); 
-            $table->string('visibility')->default('Catalog, Search'); 
-            $table->integer('price'); 
-            $table->integer('special_price')->nullable(); 
+            $table->string('visibility')->default('Catalog, Search');  */
+            $table->string('price'); 
+           /*  $table->integer('special_price')->nullable(); 
             $table->string('special_price_from_date')->nullable(); 
             $table->string('special_price_to_date')->nullable();
             $table->string('url_key')->nullable(); 
@@ -53,9 +53,9 @@ class CreateEmployeesTable extends Migration
             $table->string('products_options_container')->nullable(); 
             $table->string('msrp_display_actual_price_type')->default('Use config'); 
             $table->string('country_of_manufacture')->nullable(); 
-            $table->string('additional_attributes')->nullable(); 
-            $table->integer('qty')->default('1000'); 
-            $table->integer('out_of_stock_qty')->default('0'); 
+            $table->string('additional_attributes')->nullable();  */
+            $table->string('qty'); 
+           /*  $table->integer('out_of_stock_qty')->default('0'); 
             $table->integer('use_config_min_qty')->default('1'); 
             $table->integer ('is_qty_decimal')->default('0'); 
             $table->integer('allow_backorders')->default('0'); 
@@ -87,7 +87,8 @@ class CreateEmployeesTable extends Migration
             $table->string('bundle_price_view')->nullable(); 	
             $table->string('bundle_weight_type')->nullable();
             $table->string ('bundle_values')->nullable();
-            $table->string ('associated_skus')->nullable();
+            $table->string ('associated_skus')->nullable(); */
+            $table->timestamps();
         });
     }
 
